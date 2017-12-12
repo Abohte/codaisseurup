@@ -13,7 +13,7 @@ class Event < ApplicationRecord
     return true if !(starts_at && ends_at)
 
     if ends_at <= starts_at
-      errors.add(:expiration_date, "The endtime has to be after the starttime")
+      errors.add(:expiration_date, "- endtime has to be later than starttime")
     end
   end
 
