@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @categories = @event.categories
   end
 
   def new
@@ -14,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.build(room_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: "Event created"
@@ -44,6 +45,6 @@ class EventsController < ApplicationController
   def event_params
     params
       .require(:event)
-      .permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active)
+      .permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, {category_ids: []})
   end
 end

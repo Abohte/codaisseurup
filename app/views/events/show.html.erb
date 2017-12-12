@@ -23,6 +23,12 @@
               <%= "Food included" %>
           <% end %></li>
     </ul>
+    <br />
+
+    <h5>Categories</h5>
+    <% @categories.each do |category| %>
+      <span class="label label-success"><%= category.name %></span>
+    <% end %>
 
   </div>
 </div>

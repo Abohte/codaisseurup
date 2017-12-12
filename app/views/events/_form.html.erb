@@ -1,3 +1,6 @@
+<%= render "shared/validation" %>
+
+
 <%= form_for @event do |f| %>
   <div class="form-group">
     <label>Name</label>
@@ -27,6 +30,12 @@
     <%= f.number_field :price, placeholder: "eg. 5", class: "form-control" %>
   </div>
 
+  <label>Does the event include food and/or drinks?</label>
+  <div class="form-group">
+    <%= f.check_box :includes_food %> Includes food &nbsp;
+    <%= f.check_box :includes_drinks %> Includes drinks
+  </div>
+
   <div class="form-group">
     <label>Start date</label>
     <div class="input-group">
@@ -41,8 +50,15 @@
     </div>
   </div>
 
-  <label>Publish this event?</label>
+  <label>Categories</label>
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |box| %>
+    <div class="form-group">
+      <%= box.check_box(class: "check-box") %> <%= box.object.name %>
+    </div>
+  <% end %>
 
+
+  <label>Publish this event?</label>
   <div class="form-group">
     <%= f.check_box :active %> Active
   </div>
