@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @event = current_user.events
+    @events = current_user.events
   end
 
   def show
@@ -44,6 +44,6 @@ class EventsController < ApplicationController
   def event_params
     params
       .require(:event)
-      .permit(:name :description :location :price :capacity :includes_food :includes_drinks :starts_at :ends_at :active)
+      .permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active)
   end
 end
