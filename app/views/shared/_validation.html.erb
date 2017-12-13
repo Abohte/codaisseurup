@@ -1,7 +1,7 @@
-<% if @event.errors.any? %>
+<% if errors.any? %>
   <div class="alert alert-warning">
     <ul>
-      <% @event.errors.full_messages.each do |error| %>
+      <% errors.full_messages.each do |error| %>
         <li><%= error %></li>
       <% end %>
     </ul>
