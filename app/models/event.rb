@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  BARGAIN_PRICE = 10
+
   belongs_to :user
   has_and_belongs_to_many :categories
 
@@ -15,6 +17,14 @@ class Event < ApplicationRecord
     if ends_at <= starts_at
       errors.add(:expiration_date, "- endtime has to be later than starttime")
     end
+  end
+
+  def bargain?
+    price < BARGAIN_PRICE
+  end
+
+  def self.order_by_price
+    order :price
   end
 
 end
