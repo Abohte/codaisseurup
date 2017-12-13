@@ -13,5 +13,7 @@ describe "Viewing an individual event" do
     expect(page).to have_text(event.price)
     expect(page).to have_text(event.starts_at)
     expect(page).to have_text(event.ends_at)
+    expect(page).to have_text(event.includes_food ? "Food included" : "")
+    expect(page).to have_text(event.includes_drinks ? "Drinks included" : "")
   end
 end
