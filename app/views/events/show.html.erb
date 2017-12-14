@@ -27,7 +27,11 @@
 
     <h5>Photos</h5>
     <% @event.photos.each do |photo| %>
-      <%= image_tag photo.image %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= image_tag photo.image.thumbnail %>
+      </div>
+    </div>
     <% end %>
     <br />
 
