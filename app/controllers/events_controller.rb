@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @event.update(room_params)
+    if @event.update(event_params)
       image_params.each do |image|
         @event.photos.create(image: image)
       end
