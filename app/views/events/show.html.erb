@@ -25,6 +25,12 @@
     </ul>
     <br />
 
+    <h5>Photos</h5>
+    <% @event.photos.each do |photo| %>
+      <%= image_tag photo.image %>
+    <% end %>
+    <br />
+
     <h5>Categories</h5>
     <% @categories.each do |category| %>
       <span class="label label-success"><%= category.name %></span>

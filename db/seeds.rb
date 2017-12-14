@@ -1,5 +1,9 @@
+Photo.destroy_all
+Profile.destroy_all
 Category.destroy_all
 User.destroy_all
+
+
 
 adinda = User.create!(email: "adinda@gmail.com", password: "123456")
 jeroen = User.create!(email: "jeroen@gmail.com", password: "123456")
@@ -14,7 +18,7 @@ active = Category.create!(name: "Active")
 learning = Category.create!(name: "Learning")
 games_and_sports = Category.create!(name: "Games & Sports")
 
-Event.create!(
+event1 = Event.create!(
   name: "Dancing",
   description: "Come dance to some music",
   location: "Amsterdam",
@@ -29,7 +33,7 @@ Event.create!(
   categories: [games_and_sports, social]
   )
 
-Event.create!(
+event2 = Event.create!(
 	name: "Game night",
 	description: "One evening of old-fashioned board-games!",
 	location: "Amsterdam",
@@ -44,7 +48,7 @@ Event.create!(
 	categories: [social, games_and_sports]
 )
 
-Event.create!(
+event3 = Event.create!(
 	name: "Workshop jewelry making",
 	description: "I will explain some basics on how you can start making your own jewelry",
 	location: "Amsterdam",
@@ -59,7 +63,7 @@ Event.create!(
 	categories: [learning]
 )
 
-Event.create!(
+event4 = Event.create!(
 	name: "Family style diner",
 	description: "Bored of eating alone, come join a family style diner with strangers.",
 	location: "Zaandam",
@@ -73,3 +77,5 @@ Event.create!(
 	user: lodie,
 	categories: [social, food_and_drink]
 )
+
+photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/abohte/image/upload/v1513258664/images_ke8twn.jpg", event: event1)
