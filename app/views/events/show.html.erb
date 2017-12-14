@@ -25,15 +25,27 @@
     </ul>
     <br />
 
-    <h5>Photos</h5>
-    <% @event.photos.each do |photo| %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= image_tag photo.image.thumbnail %>
+    <% if @event.photos.any? %>
+      <h5>Photos</h5>
+      <% @event.photos.each do |photo| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= image_tag photo.image.thumbnail %>
+        </div>
       </div>
-    </div>
+      <% end %>
+      <br />
     <% end %>
-    <br />
+
+    <% if @event.brochure %>
+      <h5>Brochure</h5>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= @event.brochure %>
+        </div>
+      </div>
+      <br />
+    <% end %>
 
     <h5>Categories</h5>
     <% @categories.each do |category| %>

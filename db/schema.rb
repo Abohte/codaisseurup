@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214133305) do
+ActiveRecord::Schema.define(version: 20171214153703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brochures", force: :cascade do |t|
+    t.bigint "event_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_brochures_on_event_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -80,6 +88,7 @@ ActiveRecord::Schema.define(version: 20171214133305) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "brochures", "events"
   add_foreign_key "events", "users"
   add_foreign_key "photos", "events"
   add_foreign_key "profiles", "users"
