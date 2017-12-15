@@ -3,8 +3,6 @@ Profile.destroy_all
 Category.destroy_all
 User.destroy_all
 
-
-
 adinda = User.create!(email: "adinda@gmail.com", password: "123456")
 jeroen = User.create!(email: "jeroen@gmail.com", password: "123456")
 lodie = User.create!(email: "lodie@gmail.com",  password: "123456")
@@ -79,3 +77,6 @@ event4 = Event.create!(
 )
 
 photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/abohte/image/upload/v1513258664/images_ke8twn.jpg", event: event1)
+
+Registration.new(event: event1, user: jeroen)
+Registration.new(event: event4, user: adinda)
