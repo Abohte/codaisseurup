@@ -78,12 +78,24 @@ RSpec.describe Event, type: :model do
   let(:category2) { create :category, name: "Clean lines", events: [event] }
   let(:category3) { create :category, name: "A Man's Touch", events: [event] }
 
-  it "has categorys" do
+  it "has categories" do
     expect(event.categories).to include(category1)
     expect(event.categories).to include(category2)
     expect(event.categories).to include(category3)
   end
 
   #it { is_expected.to have_and_belong_to_many :categories }
+
+  describe "association with registration" do
+    let(:guest) {create :user, email: "guest@up.com"}
+    let(:host) {create :user, email: "host@up.com"}
+
+    let!(:event) {create :event, user: host}
+    let!(:registration) {create :registration, event: event, user: guest }
+
+    it "has guests" do
+      expect(event.guests).to include(guest)
+    end
+  end
 end
 end
