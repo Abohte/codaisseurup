@@ -1,9 +1,10 @@
 class RegistrationsController < ApplicationController
   before_action :set_event
-  before_action :authenticate_user
+  before_action :authenticate_user!
 
   def create
     @registration = current_user.registrations.create(registration_params.merge({event: @event}))
+    @registration.set_total_price
 
     redirect_to @registration.event, notice: "Thank you for attending our event!"
   end
@@ -14,9 +15,8 @@ class RegistrationsController < ApplicationController
     params.require(:registration).permit(:guest_count)
   end
 
-  end
 
   def set_event
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:event_id])
   end
 end
