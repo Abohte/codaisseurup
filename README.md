@@ -19,9 +19,14 @@ While working on this app I followed these steps:
 
   * title:string
 
-2. Events
+2. Categories_events jointable
 
-  * title:string
+  * category_id:begint
+  * event_id:bigint
+
+3. Events
+
+  * name:string
   * description:text
   * location:string
   * price:decimal
@@ -31,19 +36,31 @@ While working on this app I followed these steps:
   * active:boolean
   * starts_at:datetime
   * ends_at:datetime
+  * user_id:bigint
 
-3. Photos
+4. Photos
 
-  * event_id:bigint
   * image:string
+  * event_id:bigint
 
-4. Profiles
+5. Brochures
+
+  * image:string
+  * event_id:bigint
+
+6. Users
+
+  * email:string
+  * password:string
+
+7. Profiles
 
   * first_name:string
   * last_name:string
   * bio:text
+  * user_id:bigint
 
-5. Registations
+5. Registrations
 
   * user_id:bigint
   * event_id:bigint
