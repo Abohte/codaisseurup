@@ -16,6 +16,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    puts image_params
     @event = current_user.events.build(event_params)
     if @event.save
       image_params.each do |image|
@@ -57,7 +58,9 @@ class EventsController < ApplicationController
   def event_params
     params
       .require(:event)
-      .permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, {category_ids: []})
+      .permit(:name, :description, :location, :price, :capacity,
+        :includes_food, :includes_drinks, :starts_at, :ends_at, :active,
+        {category_ids: []})
   end
 
   def image_params
