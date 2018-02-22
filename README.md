@@ -15,17 +15,14 @@ While working on this app I followed these steps:
 
 ## Database Structure
 
-1. Categories
-
+#### Categories
   * title:string
 
-2. Categories_events jointable
-
+#### Categories_events jointable
   * category_id:begint
   * event_id:bigint
 
-3. Events
-
+#### Events
   * name:string
   * description:text
   * location:string
@@ -38,30 +35,25 @@ While working on this app I followed these steps:
   * ends_at:datetime
   * user_id:bigint
 
-4. Photos
-
+#### Photos
   * image:string
   * event_id:bigint
 
-5. Brochures
-
+#### Brochures
   * image:string
   * event_id:bigint
 
-6. Users
-
+#### Users
   * email:string
   * password:string
 
-7. Profiles
-
+#### Profiles
   * first_name:string
   * last_name:string
   * bio:text
   * user_id:bigint
 
-5. Registrations
-
+#### Registrations
   * user_id:bigint
   * event_id:bigint
   * status:boolean
@@ -73,7 +65,7 @@ Make sure you have [Ruby](https://www.ruby-lang.org/en/) and [Bundler](http://bu
 
 ```bash
 git clone git@github.com:Abohte/codaisseurup.git
-cd Codaisseurup
+cd codaisseurup
 bundle install
 rails db:create db:migrate db:seed
 rails server
